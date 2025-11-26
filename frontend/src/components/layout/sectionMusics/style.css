@@ -39,3 +39,10 @@
     border-radius: 10px;
     width: 200px;
 }
+
+.btn{
+    padding: 12px 20px;
+    background-color: #7fd300;
+    border-radius: 10px;
+    cursor: pointer;
+}

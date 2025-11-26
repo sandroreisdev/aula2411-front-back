@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './style.css'
 import axios from 'axios'
 import { ModalMusic } from '../../Modals/modalMusic'
+import { ModalCreate } from '../../Modals/modalCreate'
 
 export const SectionMusic = () => {
 
@@ -9,7 +10,8 @@ export const SectionMusic = () => {
     const [open, setOpen] = useState(false)
     const [musicaSelecionada, setMusicaSelecionada] = useState(null)
 
-
+    const [openCadastro, setOpenCadastro] = useState(false)
+    
 
     useEffect(() => {
         axios.get('http://localhost:8081')
@@ -24,10 +26,15 @@ export const SectionMusic = () => {
     const abrirModal = (musicaParametro) => {
         setMusicaSelecionada(musicaParametro)
         setOpen(true)
-    }   
+    }  
+    
+    const abrirCadastro =() =>{
+        setOpenCadastro(true)
+    }
 
     const fecharModal = () => {
         setOpen(false)
+        setOpenCadastro(false)
     }
 
     return (
@@ -44,8 +51,10 @@ export const SectionMusic = () => {
                         </div>
                     ))}
                 </div>
+                <button className='btn' onClick={() => abrirCadastro()}>Cadastrar nova música</button>
             </section>  
             <ModalMusic open={open} close={fecharModal} musica={musicaSelecionada}/>          
+            <ModalCreate open={openCadastro} close={fecharModal} />
         </>
     )
 }
