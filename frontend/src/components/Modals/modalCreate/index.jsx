@@ -46,7 +46,7 @@ export const ModalCreate = ({ open, close }) => {
                         <label htmlFor="">Cantor da música</label>
                         <input type="text" placeholder="Cantor da música" value={cantor} onChange={(e) => setLink(e.target.value)}/>
                     </div>
-                    <button className="btn">Cadastrar</button>
+                    <button className="btn" onClick={() => cadastro()}>Cadastrar</button>
                 </form>
             </div>
 
